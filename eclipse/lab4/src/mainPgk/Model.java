@@ -9,23 +9,72 @@
  * provide location
  **/
 public class Model{
+	int xloc = 0;
+	int yloc = 0;
+	int xVel;
+	int yVel;
+	Direction dir;
+	int width;
+	int height;
+	int imgWidth;
+	int imgHeight;
+	final static int yBuffer = 25; //improves visual collision 
+
 	public Model(int w, int h, int iw, int ih) {
-		
+		width = w;
+		height = h;
+		imgWidth = iw;
+		imgHeight = ih;
+		xVel = 8;
+		yVel = 2;
+		dir = Direction.NORTHEAST;
 	}
-	
+
 	public void updateLocationAndDirection() {
-		
+		if(xloc < 0 || xloc > width - imgWidth) {
+			xVel *= -1;
+		}
+		if(yloc + yBuffer < 0 || yloc + yBuffer > height - imgHeight) {
+			yVel *= -1;
+		}
+		updateDirection();
 	}
 	
 	public int getX() {
-		return 0;
+		return xloc;
 	}
-	
+
 	public int getY() {
-		return 0;
+		return yloc;
 	}
-	public int getDirect() {
-		return 0;
+	public Direction getDirect() {
+		return dir;
 	}
-	
+
+	public void updateDirection() {
+		if(xVel==0) {
+			if(yVel>0) {
+				dir= Direction.NORTH;
+			} else {
+				dir = Direction.SOUTH;
+			}
+		}else if(xVel>0) {
+			if(yVel>0) {
+				dir= Direction.NORTHEAST;
+			} else if(yVel<0){
+				dir = Direction.SOUTHEAST;
+			} else {
+				dir = Direction.EAST;
+			}
+		}else {
+			if(yVel>0) {
+				dir= Direction.NORTHWEST;
+			} else if(yVel<0){
+				dir = Direction.SOUTHWEST;
+			} else {
+				dir = Direction.WEST;
+			}
+		}
+	}
+
 }
