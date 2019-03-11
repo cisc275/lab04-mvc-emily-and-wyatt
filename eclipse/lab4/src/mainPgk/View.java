@@ -25,8 +25,8 @@ public class View extends JPanel{
     int picNum = 0;
     BufferedImage[][] pics;
     EOrc currentOrc;
-    int xPos;
-    int yPos;
+    int xLoc;
+    int yLoc;
     static JFrame frame;
     final static int xIncr = 8; 
     final static int yIncr = 2; 
@@ -34,7 +34,6 @@ public class View extends JPanel{
     final static int frameHeight = 300;
     final static int imgWidth = 165;
     final static int imgHeight = 165;
-    
 
 	//Constructor: get image, segment and store in array
 	public View() { 
@@ -52,8 +51,6 @@ public class View extends JPanel{
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setSize(frameWidth, frameHeight);
     	frame.setVisible(true);
-		
-		
 	}
 
 	public int getWidth(){
@@ -70,8 +67,8 @@ public class View extends JPanel{
 	}
 
 	public void update(int x, int y, Direction dir){
-		xPos = x;
-		yPos = y;
+		xLoc = x;
+		yLoc = y;
 		picNum = (picNum + 1) % frameCount;
 		//Direction -> EOrc
 		//I would rather this be inside one the the enums or just have a single enum, but apparently the code for it has to be 
@@ -93,7 +90,6 @@ public class View extends JPanel{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	//Read image from file and return
@@ -107,14 +103,8 @@ public class View extends JPanel{
 		return null;
 	}
 	
-	
 	public void paint(Graphics g) {
-//    	picNum = (picNum + 1) % frameCount;
-
 		g.drawImage(pics[currentOrc.ordinal()][picNum], 
-				xPos, yPos, Color.gray, this);
+				xLoc, yLoc, Color.gray, this);
     }
-	
-	
-
 }
