@@ -28,7 +28,7 @@ public class Model{
 		imgHeight = ih;
 		xVel = 8;
 		yVel = 2;
-		dir = Direction.NORTHEAST;
+		dir = Direction.SOUTHEAST;
 	}
 
 	public void updateLocationAndDirection() {
@@ -39,6 +39,8 @@ public class Model{
 			yVel *= -1;
 		}
 		updateDirection();
+		xloc += xVel;
+		yloc += yVel;
 	}
 	
 	public int getX() {
@@ -61,17 +63,17 @@ public class Model{
 			}
 		}else if(xVel>0) {
 			if(yVel>0) {
-				dir= Direction.NORTHEAST;
+				dir= Direction.SOUTHEAST;
 			} else if(yVel<0){
-				dir = Direction.SOUTHEAST;
+				dir = Direction.NORTHEAST;
 			} else {
 				dir = Direction.EAST;
 			}
 		}else {
 			if(yVel>0) {
-				dir= Direction.NORTHWEST;
+				dir= Direction.SOUTHWEST;
 			} else if(yVel<0){
-				dir = Direction.SOUTHWEST;
+				dir = Direction.NORTHWEST;
 			} else {
 				dir = Direction.WEST;
 			}
