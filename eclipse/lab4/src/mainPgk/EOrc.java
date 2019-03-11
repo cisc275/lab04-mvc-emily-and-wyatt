@@ -19,23 +19,23 @@ public enum EOrc {
 		return file;
 	}
 	
-	//returns a diagonal moving EOrc
-	public static EOrc selectOrc(boolean right, boolean down) {
-		if(right) {
-			if(down) return southEast;
-			return northEast;
-		}
-		if(down) return southWest;
-		return northWest;
-	}
-	//returns an EOrc of the correct orientation
-	public static EOrc selectOrc(boolean right, boolean down, boolean noX, boolean noY) {
-		if(!noX && !noY) return selectOrc(right, down);
-		if(noX) {
-			if(down) return south;
-			return north;
-		}
-		if(right) return east;
-		return west;
-	}
+//	//returns a diagonal moving EOrc
+//	public static EOrc selectOrc(boolean right, boolean down) {
+//		if(right) {
+//			if(down) return southEast;
+//			return northEast;
+//		}
+//		if(down) return southWest;
+//		return northWest;
+//	}
+//	//returns an EOrc of the correct orientation
+//	public static EOrc selectOrc(boolean right, boolean down, boolean noX, boolean noY) {
+//		if(!noX && !noY) return selectOrc(right, down);
+//		if(noX) {
+//			if(down) return south;
+//			return north;
+//		}
+//		if(right) return east;
+//		return west;
+//	}
 }

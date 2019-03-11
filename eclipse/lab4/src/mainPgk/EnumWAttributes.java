@@ -1,4 +1,4 @@
-
+package mainPgk;
 import java.util.HashMap;
 
 public class EnumWAttributes {

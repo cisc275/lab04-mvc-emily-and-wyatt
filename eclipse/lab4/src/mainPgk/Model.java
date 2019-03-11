@@ -1,3 +1,4 @@
+package mainPgk;
 /**
  * Model: Contains all the state and logic
  * Does not contain anything about images or graphics, must ask view for that
